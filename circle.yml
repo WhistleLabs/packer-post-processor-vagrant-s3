@@ -1,0 +1,16 @@
+machine:
+  environment:
+    IMPORT_PATH: "github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME"
+
+dependencies:
+  pre:
+    - go get github.com/tools/godep
+
+  override:
+    - mkdir -p "/home/ubuntu/.go_workspace/src/$IMPORT_PATH"
+    - rsync -azC --delete ./ "/home/ubuntu/.go_workspace/src/$IMPORT_PATH/"
+    - cd /home/ubuntu/.go_workspace/src/$IMPORT_PATH && godep go install
+
+general:
+  artifacts:
+    - "/home/ubuntu/.go_workspace/bin/packer-post-processor-vagrant-s3"
