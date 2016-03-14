@@ -1,6 +1,8 @@
 Packer Vagrant S3 post-processor
 ================================
 
+[![Circle CI](https://circleci.com/gh/unifio/packer-post-processor-vagrant-s3.svg?style=svg)](https://circleci.com/gh/unifio/packer-post-processor-vagrant-s3)
+
 Uploads built Vagrant boxes to S3 and manages a manifest file for versioned boxes.
 
 Installation
